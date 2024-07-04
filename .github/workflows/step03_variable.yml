@@ -18,9 +18,17 @@ jobs:
   build_2:
     runs-on: ubuntu-latest
     steps:
-    - name: Build_2 Step2
+    - name: Build_2 Step1
       run: |
         echo "Run Build_2 Step1 : ${{ env.name }}"
         echo "So am I! By the way, I want to brush my teeth."
+  build_3:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build_3 Step1
+      run: |
+        echo "Run Build_3 Step1 Variables : ${{ var.PROJECT_SERVER }}"
+        echo "Run Build_3 Step2 Secrets : ${{ secrets.PRIVATE_KEY }}"
+        echo "Me too... I go to the toilet to wash my teeth after this class is finished."
     
   
