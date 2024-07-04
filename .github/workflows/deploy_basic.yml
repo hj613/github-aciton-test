@@ -23,7 +23,7 @@ jobs:
           ssh-keyscan ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
       - name: Copy Repository files to Remote server
         run: |
-          cd $ {{ github.workspace }}
-          scp -i ~/private-key.pem -r ./* ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/${{ secrets.REMOTE_USER }} echo "Copied Repository Files"
-          
+          cd ${{ github.workspace }}
+          scp -i ~/private-key.pem -r ./* ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/${{ secrets.REMOTE_USER }} 
+          echo "Copied Repository Files"
           
