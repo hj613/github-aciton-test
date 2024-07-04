@@ -27,7 +27,7 @@ jobs:
     steps:
     - name: Build_3 Step1
       run: |
-        echo "Run Build_3 Step1 Variables : ${{ var.PROJECT_SERVER }}"
+        echo "Run Build_3 Step1 Variables : ${{ vars.PROJECT_SERVER }}"
         echo "Run Build_3 Step2 Secrets : ${{ secrets.PRIVATE_KEY }}"
         echo "Me too... I go to the toilet to wash my teeth after this class is finished."
     
