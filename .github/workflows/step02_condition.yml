@@ -1,0 +1,11 @@
+name: step02_condition
+on: workflow_dispatch
+jobs:
+  build:
+    if: github.repository == 'hj613/github-aciton-test'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print Result
+      run: |
+        echo "Run Build on hj613/github-aciton-test"
+        echo "Sorry, I'm very hungry. Give me a lunch time. Please!"
