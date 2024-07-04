@@ -1,0 +1,26 @@
+name: step03_variable
+on: workflow_dispatch
+
+env:
+  name: Devops
+  game: Save the penguin
+
+jobs:
+  build_1:
+    env: 
+      name: Infra
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build_1 Step1
+      run: |
+        echo "Run Build_1 Step1 : $name"
+        echo "The game, $game is very fun!"
+  build_2:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build_2 Step2
+      run: |
+        echo "Run Build_1 Step2 : $name"
+        echo "So am I! By the way, I want to brush my teeth."
+    
+  
