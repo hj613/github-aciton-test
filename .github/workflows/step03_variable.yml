@@ -13,14 +13,14 @@ jobs:
     steps:
     - name: Build_1 Step1
       run: |
-        echo "Run Build_1 Step1 : $name"
+        echo "Run Build_1 Step1 : ${{ name }}"
         echo "The game, $game is very fun!"
   build_2:
     runs-on: ubuntu-latest
     steps:
     - name: Build_2 Step2
       run: |
-        echo "Run Build_1 Step2 : $name"
+        echo "Run Build_2 Step1 : ${{ env.name }}"
         echo "So am I! By the way, I want to brush my teeth."
     
   
