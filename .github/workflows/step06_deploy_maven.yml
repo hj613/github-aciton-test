@@ -67,18 +67,19 @@ jobs:
 
       - name: Execute REMOTE_HOST Commands
         run: |  
-          ssh -i ~/private-key.pem ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "sudo fuser -k 8080/tcp || true"
-          ssh -i ~/private-key.pem ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "sudo nohup java -jar /home/${{ secrets.REMOTE_USER }}/app.jar > /home/${{ secrets.REMOTE_USER }}/app.log 2>&1 &"
-          sleep 15
-          if pgrep -f 'java -jar.*app.jar' > /dev/null
-          then
-            echo 'Application started successfully'
-            exit 0
-          else
-            echo 'Application failed to start'
-            cat /home/${{ secrets.REMOTE_USER }}/app.log
-            exit 1
-          fi
+          ssh -i ~/private-key.pem ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "
+            sudo fuser -k 8080/tcp || true
+            nohup sudo java -jar /home/${{ secrets.REMOTE_USER }}/app.jar > /home/${{ secrets.REMOTE_USER }}/app.log 2>&1 &
+            sleep 30
+            if pgrep -f 'java -jar.*app.jar' > /dev/null
+            then
+              echo 'Application started successfully'
+              exit 0
+            else
+              echo 'Application failed to start'
+              cat /home/${{ secrets.REMOTE_USER }}/app.log
+              exit 1
+            fi
           
           
     
