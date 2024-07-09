@@ -65,6 +65,8 @@ spring-boot-starter/target/
 spring-boot-cli/target/
 
 # Application properties
+application.yml
+application.properties
 application*.yml
 application*.properties
 
