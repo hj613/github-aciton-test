@@ -62,6 +62,6 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          script:
+          script: |
             docker pull overthemargin/github-action-docker
             docker run -d -p 8080:8080 --name github-action-backend overthemargin/github-action-docker
