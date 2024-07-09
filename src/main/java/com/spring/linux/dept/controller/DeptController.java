@@ -18,12 +18,17 @@ public class DeptController {
 	
 	@GetMapping("/api/home")
 	public String home() {
-		return "home";
+		return "home:v2";
 	}
 	
 	@GetMapping("/api/depts")
 	public List<Dept> getAllDepts() {
 		return deptService.getAllDepts();
+	}
+	
+	@GetMapping("/api/docker-test")
+	public String dockerTest() {
+		return "hzzin zzang";
 	}
 	
 	
