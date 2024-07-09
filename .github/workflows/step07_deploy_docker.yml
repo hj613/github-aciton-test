@@ -47,6 +47,9 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
+    - name: Docker Hub Push Image
+      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/github-action-docker
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -62,6 +65,3 @@ jobs:
           script:
             docker pull overthemargin/github-action-docker
             docker run -d -p 8080:8080 --name github-action-backend overthemargin/github-action-docker
-
-    - name: Docker Hub Push Image
-      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/github-action-docker
